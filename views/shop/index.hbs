@@ -1,0 +1,25 @@
+<div class="products">
+    <h1>Menus</h1>
+    <div class="col-sm-6 col-md-4 col-md-offset-4 col-sm-offset-3">
+        <div id="success" class="alart alart-success" {{#if noMessage}}hidden{{/if}}>
+            {{successMsg}}
+        </div>
+    </div>
+    {{# each products}}
+    <div class="card-deck mb-3">
+        {{# each this}}
+        <div class="card">
+            <img src="{{this.imagepath}}" class="card-img-top" alt="{{this.title}}">
+            <div class="card-body">
+                <h5 class="card-title">{{this.title}}</h5>
+                <p class="card-text text-muted">{{this.description}}</p>
+                <p class="card-text">₹{{this.price}}</p>
+                <p class="card-text">
+                    <a href="/add-to-cart/{{this._id}}" class="btn btn-primary">Add to plate</a>
+                </p>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    {{/each}}
+</div>

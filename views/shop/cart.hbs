@@ -1,0 +1,51 @@
+<h1>Your order</h1>
+{{#if products}}
+<table class="table table-hover text-center">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Items</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Price(Rs)</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Remove</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        {{#each products}}
+        <tr>
+            <td scope="row">{{this.item.title}}</td>
+            <td>
+                <form action="/cart/update/{{this.item._id}}" method="POST" class="form-inline justify-content-center">
+                    <input type="number" name="updatedqty" id="updatedqty" value="{{this.qty}}" class="form-control"
+                        min="1" style="width: 50px">
+                    <input type="submit" value="Update" class="btn btn-secondary btn-sm">
+                </form>
+            </td>
+            <td>₹{{this.item.price}}
+            <td>₹{{this.price}}</td>
+
+            <td>
+                <a href="/cart/remove/{{this.item._id}}">
+                    <i class="fas fa-trash"></i>
+                </a>
+            </td>
+
+        </tr>
+        {{/each}}
+        {{#if totalPrice}}
+        <tr>
+            <td colspan="2"></td>
+            <td><strong>Total Amount</strong></td>
+            <td><strong>₹{{totalPrice}}</strong></td>
+        </tr>
+        {{/if}}
+    </tbody>
+</table>
+<div class="d-flex justify-content-end">
+    <a href="/checkout" type="button" class="btn btn-primary">Checkout</a>
+</div>
+{{else}}
+<h4>No Items in the cart.</h4>
+
+{{/if}}

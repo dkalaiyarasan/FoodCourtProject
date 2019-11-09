@@ -1,0 +1,18 @@
+<script src="https://js.stripe.com/v3/"></script>
+
+<div class="row">
+    <div class="col-md-5 offset-md-4">
+        <h1>Checkout</h1>
+        <div id="card-errors"></div>
+        <form action="/checkout" method="post" id="payment-form">
+            <div id="card-element"></div>
+            <div class="form-group text-center">
+                <h5 class="float-left">Total Price: ₹{{totalPrice}}</h5>
+                <input type="submit" value="Place Order" class="float-right btn btn-success">
+
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="javascripts/checkout.js"></script>

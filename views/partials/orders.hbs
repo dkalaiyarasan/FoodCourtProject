@@ -1,0 +1,19 @@
+<h1>Your Orders</h1>
+<table class="table table-bordered table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>Order ID</th>
+            <th>Order Price</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{# each orders}}
+        <tr>
+            <td>{{this.paymentId}}</td>
+            <td>{{this.cart.totalPrice}}</td>
+            <td>{{this.date}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
